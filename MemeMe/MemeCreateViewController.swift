@@ -78,8 +78,9 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        println("textFieldDidBeginEditing")
         if textField.text == "Top" || textField.text == "Bottom" {
-            textField.text == ""
+            textField.text = ""
         }
     }
     
