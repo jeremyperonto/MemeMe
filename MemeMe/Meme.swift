@@ -7,11 +7,11 @@
 //
 
 import Foundation
-import UIKit
-
-struct Meme {
-    var topString: String
-    var bottomString: String
-    var originalImage: UIImage
-    var memedImage: UIImage
-}
+//import UIKit
+//
+//struct Meme {
+//    var topString: String
+//    var bottomString: String
+//    var originalImage: UIImage
+//    var memedImage: UIImage
+//}

@@ -17,7 +17,12 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var toolbar: UIToolbar!
     
-    //var memedImage : UIImage?
+    struct Meme {
+        var topString: String
+        var bottomString: String
+        var originalImage: UIImage
+        var memedImage: UIImage
+    }
     
     let memeTextAttributes = [
         
@@ -133,15 +138,25 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func save() {
-        var meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image, memedImage: memedImage)
+        let myMemedImage = generateMemedImage()
+        var meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memedImage: myMemedImage)
     }
     
     func generateMemedImage() -> UIImage {
-        //Render view to an image
+        
+        // TODO: Hide toolbar and navbar
+        self.toolbar.hidden = true
+        UIApplication.sharedApplication().statusBarHidden = true
+        
+        // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar
+        self.toolbar.hidden = false
+        UIApplication.sharedApplication().statusBarHidden = false
         
         return memedImage
     }
