@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Meme {
-    //TODO: create Meme Strcut with photo + image
+    var topString: String
+    var bottomString: String
+    var originalImage: UIImage
+    var memedImage: UIImage
 }

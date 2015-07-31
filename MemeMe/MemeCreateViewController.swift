@@ -17,6 +17,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var toolbar: UIToolbar!
     
+    //var memedImage : UIImage?
     
     let memeTextAttributes = [
         
@@ -129,6 +130,20 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         //toolbar.frame.origin.y = 0
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func save() {
+        var meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image, memedImage: memedImage)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        //Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return memedImage
     }
     
 }
