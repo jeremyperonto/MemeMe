@@ -144,7 +144,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar
+        // TODO: Hide toolbar and navbar -- DOUBLE CHECK
         self.toolbar.hidden = true
         UIApplication.sharedApplication().statusBarHidden = true
         
@@ -154,7 +154,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
+        // TODO:  Show toolbar and navbar -- DOUBLE CHECK
         self.toolbar.hidden = false
         UIApplication.sharedApplication().statusBarHidden = false
         
