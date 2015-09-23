@@ -79,7 +79,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
 
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 self.imagePickerView.image = image
                 imagePickerView.contentMode = .ScaleAspectFit //NOTE: is this the right place?
@@ -88,12 +88,12 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        println("Cancelled")
+        print("Cancelled")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        println("textFieldDidBeginEditing")
+        print("textFieldDidBeginEditing")
         if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
         }
