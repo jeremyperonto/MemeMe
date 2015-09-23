@@ -138,8 +138,9 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func save() {
-        let myMemedImage = generateMemedImage()
-        var meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memedImage: myMemedImage)
+        let meme = Meme(topString: topMemeTextField.text, bottomString: bottomMemeTextField.text, originalImage: imagePickerView.image, memedImage: memedImage)
+        
+        //TODO: Add to memes array in AppDelegate
     }
     
     func generateMemedImage() -> UIImage {
@@ -161,4 +162,20 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
+    @IBAction func shareMemeButtonPressed(sender: UIBarButtonItem) {
+        
+        let memedImage = self.generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
+        
+        activityViewController.completionWithItemsHandler = {
+            (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
+            if completed {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+    }
 }
+
+

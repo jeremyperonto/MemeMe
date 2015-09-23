@@ -36,7 +36,7 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jN9-VM-dII">
-                                <rect key="frame" x="0.0" y="0.0" width="391" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-gC-RlU">
                                 <rect key="frame" x="16" y="555" width="343" height="40"/>
@@ -47,8 +47,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="o2c-9y-7jx">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" id="qwe-NO-9ce"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" style="plain" id="YdJ-UI-CbB"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qwe-NO-9ce">
+                                            <connections>
+                                                <action selector="shareMemeButtonPressed:" destination="vXZ-lx-hvc" id="thc-lg-kNE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="YdJ-UI-CbB"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
