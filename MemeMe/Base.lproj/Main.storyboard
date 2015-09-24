@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Meme Create View Controller-->
@@ -17,8 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fY3-I5-bPO">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jN9-VM-dII">
+                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaZ-oF-jpY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="N6T-Qo-5Kh"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Create Meme" id="o2c-9y-7jx">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qwe-NO-9ce">
+                                            <connections>
+                                                <action selector="shareMemeButtonPressed:" destination="vXZ-lx-hvc" id="thc-lg-kNE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="YdJ-UI-CbB">
+                                            <connections>
+                                                <action selector="cancelBarButtonPressed:" destination="vXZ-lx-hvc" id="klV-4R-XRR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-gC-RlU">
+                                <rect key="frame" x="20" y="568" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OpC-J6-R0W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fY3-I5-bPO">
+                                <rect key="frame" x="-4" y="623" width="383" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bgQ-gW-PLS"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="yNk-Ze-Ibo"/>
                                     <barButtonItem systemItem="camera" id="MXf-9N-A2g">
@@ -35,38 +70,39 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5Jk-qE-2YT"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jN9-VM-dII">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-gC-RlU">
-                                <rect key="frame" x="16" y="555" width="343" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaZ-oF-jpY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="o2c-9y-7jx">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qwe-NO-9ce">
-                                            <connections>
-                                                <action selector="shareMemeButtonPressed:" destination="vXZ-lx-hvc" id="thc-lg-kNE"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="YdJ-UI-CbB"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ajF-s5-8cC">
-                                <rect key="frame" x="16" y="55" width="343" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ARu-My-5Mp">
+                                <rect key="frame" x="20" y="59" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="UAQ-gB-JSP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="UaZ-oF-jpY" secondAttribute="trailing" id="Ql9-pz-eS7"/>
-                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="TQ5-b7-QLk"/>
-                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ucB-YZ-cKI"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="top" secondItem="UaZ-oF-jpY" secondAttribute="bottom" id="0J6-Eg-Yd4"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="top" secondItem="UaZ-oF-jpY" secondAttribute="bottom" constant="15" id="5Fh-jO-GcB"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="7yG-MK-ksN"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="8c9-Di-zaM"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="BUT-pm-O8c"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jN9-VM-dII" secondAttribute="bottom" id="GKT-29-PgN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fY3-I5-bPO" secondAttribute="trailing" constant="-24" id="IWG-It-V81"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="top" secondItem="jN9-VM-dII" secondAttribute="bottom" constant="-55" id="K1r-SJ-fvm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jN9-VM-dII" secondAttribute="trailing" constant="-20" id="T3r-zh-dVH"/>
+                            <constraint firstItem="fY3-I5-bPO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-24" id="TF2-zD-oVn"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="UpP-fy-OL4"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="X6I-Fi-hYI"/>
+                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="YTy-cM-zzf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UaZ-oF-jpY" secondAttribute="trailing" constant="-20" id="cp5-dD-miA"/>
+                            <constraint firstItem="fY3-I5-bPO" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottomMargin" id="eBc-HO-moY"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="44" id="gEe-4r-QdS"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="l0d-Ok-bub"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="oRY-PH-vZF"/>
+                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="ogp-vz-FjW"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="wXy-aM-jQR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jN9-VM-dII" secondAttribute="trailing" constant="-20" id="yGl-88-aH5"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="jN9-VM-dII" secondAttribute="bottom" constant="44" id="yuD-Jl-Bol"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -77,8 +113,9 @@
                         <outlet property="bottomMemeTextField" destination="1C5-gC-RlU" id="gZN-xM-DWz"/>
                         <outlet property="cameraButton" destination="MXf-9N-A2g" id="GFg-T3-R4g"/>
                         <outlet property="imagePickerView" destination="jN9-VM-dII" id="Yfv-Xo-n1x"/>
+                        <outlet property="navbar" destination="UaZ-oF-jpY" id="p7o-az-5rv"/>
                         <outlet property="toolbar" destination="fY3-I5-bPO" id="2J9-bu-evD"/>
-                        <outlet property="topMemeTextField" destination="ajF-s5-8cC" id="JTJ-ou-Mta"/>
+                        <outlet property="topMemeTextField" destination="ARu-My-5Mp" id="60l-Zg-LBs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

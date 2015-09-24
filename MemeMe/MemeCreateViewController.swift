@@ -16,6 +16,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var navbar: UINavigationBar!
     
     struct Meme {
         var topString: String
@@ -137,8 +138,8 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func save() {
-        let meme = Meme(topString: topMemeTextField.text, bottomString: bottomMemeTextField.text, originalImage: imagePickerView.image, memedImage: memedImage)
+    func save(memedImage: UIImage) {
+        let meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         
         //TODO: Add to memes array in AppDelegate
     }
@@ -147,7 +148,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         
         // TODO: Hide toolbar and navbar -- DOUBLE CHECK
         self.toolbar.hidden = true
-        UIApplication.sharedApplication().statusBarHidden = true
+        self.navbar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -157,7 +158,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         
         // TODO:  Show toolbar and navbar -- DOUBLE CHECK
         self.toolbar.hidden = false
-        UIApplication.sharedApplication().statusBarHidden = false
+        self.navbar.hidden = false
         
         return memedImage
     }
@@ -171,11 +172,20 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         activityViewController.completionWithItemsHandler = {
             (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
             if completed {
-                self.save()
+                self.save(memedImage)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
+    
+    @IBAction func cancelBarButtonPressed(sender: UIBarButtonItem) {
+        
+        topMemeTextField.text = "TOP"
+        bottomMemeTextField.text = "BOTTOM"
+        imagePickerView.image = nil
+        
+    }
+    
 }
 
 
