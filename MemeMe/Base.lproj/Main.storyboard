@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,12 +20,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jN9-VM-dII">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaZ-oF-jpY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="N6T-Qo-5Kh"/>
+                                    <constraint firstAttribute="height" constant="44" id="hLX-Xw-Ibt"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="Create Meme" id="o2c-9y-7jx">
@@ -44,15 +45,33 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-gC-RlU">
                                 <rect key="frame" x="20" y="568" width="335" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="OpC-J6-R0W"/>
+                                    <constraint firstAttribute="width" secondItem="1C5-gC-RlU" secondAttribute="height" multiplier="67:8" id="YRO-48-hY3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YRO-48-hY3"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ARu-My-5Mp">
+                                <rect key="frame" x="20" y="59" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ARu-My-5Mp" secondAttribute="height" multiplier="67:8" id="sKi-nv-tln"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sKi-nv-tln"/>
+                                    </mask>
+                                </variation>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fY3-I5-bPO">
-                                <rect key="frame" x="-4" y="623" width="383" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="bgQ-gW-PLS"/>
+                                    <constraint firstAttribute="height" constant="44" id="6eX-Ly-FrZ"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="yNk-Ze-Ibo"/>
@@ -70,39 +89,27 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5Jk-qE-2YT"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ARu-My-5Mp">
-                                <rect key="frame" x="20" y="59" width="335" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="UAQ-gB-JSP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jN9-VM-dII" firstAttribute="top" secondItem="UaZ-oF-jpY" secondAttribute="bottom" id="0J6-Eg-Yd4"/>
-                            <constraint firstItem="ARu-My-5Mp" firstAttribute="top" secondItem="UaZ-oF-jpY" secondAttribute="bottom" constant="15" id="5Fh-jO-GcB"/>
-                            <constraint firstItem="jN9-VM-dII" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="7yG-MK-ksN"/>
-                            <constraint firstItem="1C5-gC-RlU" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="8c9-Di-zaM"/>
-                            <constraint firstItem="jN9-VM-dII" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="BUT-pm-O8c"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jN9-VM-dII" secondAttribute="bottom" id="GKT-29-PgN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fY3-I5-bPO" secondAttribute="trailing" constant="-24" id="IWG-It-V81"/>
-                            <constraint firstItem="1C5-gC-RlU" firstAttribute="top" secondItem="jN9-VM-dII" secondAttribute="bottom" constant="-55" id="K1r-SJ-fvm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jN9-VM-dII" secondAttribute="trailing" constant="-20" id="T3r-zh-dVH"/>
-                            <constraint firstItem="fY3-I5-bPO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-24" id="TF2-zD-oVn"/>
-                            <constraint firstItem="1C5-gC-RlU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="UpP-fy-OL4"/>
-                            <constraint firstItem="ARu-My-5Mp" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="X6I-Fi-hYI"/>
-                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="YTy-cM-zzf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UaZ-oF-jpY" secondAttribute="trailing" constant="-20" id="cp5-dD-miA"/>
-                            <constraint firstItem="fY3-I5-bPO" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottomMargin" id="eBc-HO-moY"/>
-                            <constraint firstItem="jN9-VM-dII" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="44" id="gEe-4r-QdS"/>
-                            <constraint firstItem="ARu-My-5Mp" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="l0d-Ok-bub"/>
-                            <constraint firstItem="ARu-My-5Mp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="oRY-PH-vZF"/>
-                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="ogp-vz-FjW"/>
-                            <constraint firstItem="1C5-gC-RlU" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="wXy-aM-jQR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jN9-VM-dII" secondAttribute="trailing" constant="-20" id="yGl-88-aH5"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="jN9-VM-dII" secondAttribute="bottom" constant="44" id="yuD-Jl-Bol"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fY3-I5-bPO" secondAttribute="trailing" constant="-20" id="19S-uj-Koe"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="1ad-fb-xzC"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="88M-ob-QlG"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="HvU-sU-r7e"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="MVG-fS-YDN"/>
+                            <constraint firstItem="fY3-I5-bPO" firstAttribute="top" secondItem="1C5-gC-RlU" secondAttribute="bottom" constant="15" id="VWb-Kx-Tbf"/>
+                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="Vsc-WG-fCB"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="height" secondItem="ARu-My-5Mp" secondAttribute="height" id="YjE-FG-1VF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jN9-VM-dII" secondAttribute="trailing" constant="-20" id="bxV-kG-o4U"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="width" secondItem="ARu-My-5Mp" secondAttribute="width" id="cAI-B8-jPG"/>
+                            <constraint firstItem="UaZ-oF-jpY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="fUC-iM-tWG"/>
+                            <constraint firstItem="1C5-gC-RlU" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="gIZ-Hz-017"/>
+                            <constraint firstItem="fY3-I5-bPO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="iGf-6N-GWg"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="nMo-sB-6JI"/>
+                            <constraint firstItem="jN9-VM-dII" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottomMargin" id="ngo-fa-o61"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UaZ-oF-jpY" secondAttribute="trailing" constant="-20" id="pKm-74-PCR"/>
+                            <constraint firstItem="fY3-I5-bPO" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottomMargin" id="uVT-Us-lyF"/>
+                            <constraint firstItem="ARu-My-5Mp" firstAttribute="top" secondItem="UaZ-oF-jpY" secondAttribute="bottom" constant="15" id="yRO-wb-UtB"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

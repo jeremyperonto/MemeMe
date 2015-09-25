@@ -57,7 +57,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         //Uses NSNotificationCenter to listen for TextField interaction and move the keyboard
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -132,8 +132,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        //TODO: Fix toolbar
-        //toolbar.frame.origin.y = 0
+        
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
