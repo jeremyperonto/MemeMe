@@ -18,12 +18,6 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
     
-    struct Meme {
-        var topString: String
-        var bottomString: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-    }
     
     let memeTextAttributes = [
         
@@ -140,7 +134,11 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     func save(memedImage: UIImage) {
         let meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         
-        //TODO: Add to memes array in AppDelegate
+        //Add to memes array in AppDelegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
     }
     
     func generateMemedImage() -> UIImage {
