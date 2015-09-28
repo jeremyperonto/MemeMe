@@ -135,15 +135,17 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         let meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         
         //Add to memes array in AppDelegate
+        
+        //Alternate to below [TEST]: (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        
     }
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar -- DOUBLE CHECK
+        //Hide toolbar and navbar
         toolbar.hidden = true
         navbar.hidden = true
         
@@ -153,36 +155,49 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar -- DOUBLE CHECK
+        //Show toolbar and navbar
         toolbar.hidden = false
         navbar.hidden = false
         
         return memedImage
+        
     }
     
     @IBAction func shareMemeButtonPressed(sender: UIBarButtonItem) {
         
-        let memedImage = generateMemedImage()
-        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        presentViewController(activityViewController, animated: true, completion: nil)
-        
-        activityViewController.completionWithItemsHandler = {
-            (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
-            if completed {
-                self.save(memedImage)
-                self.dismissViewControllerAnimated(true, completion: nil)
+        if imagePickerView.image != nil {
+            
+            let memedImage = generateMemedImage()
+            let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+            presentViewController(activityViewController, animated: true, completion: nil)
+            
+            activityViewController.completionWithItemsHandler = {
+                (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
+                if completed {
+                    self.save(memedImage)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
             }
         }
+        else {
+            let alertController = UIAlertController(title: "Hold up", message: "Be sure to make the meme your own before sharing", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                
+            }
+            alertController.addAction(OKAction)
+            
+        }
+        
     }
     
-    @IBAction func cancelBarButtonPressed(sender: UIBarButtonItem) {
-        
-        topMemeTextField.text = "TOP"
-        bottomMemeTextField.text = "BOTTOM"
-        imagePickerView.image = nil
-        
-    }
-    
+        @IBAction func cancelBarButtonPressed(sender: UIBarButtonItem) {
+            
+            topMemeTextField.text = "TOP"
+            bottomMemeTextField.text = "BOTTOM"
+            imagePickerView.image = nil
+            
+        }
 }
 
 
