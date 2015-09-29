@@ -207,6 +207,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="8gA-ST-BL5" id="aTz-O7-pY7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPO-ja-9qb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,6 +262,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="cw8-Qm-w91" id="T1Y-uU-Bqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbj-mL-mvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -304,6 +310,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AbR-zu-zpa"/>
+        <segue reference="2a6-lI-X3o"/>
     </inferredMetricsTieBreakers>
 </document>
