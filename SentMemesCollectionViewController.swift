@@ -10,6 +10,7 @@ import UIKit
 
 class SentMemesCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -20,11 +21,18 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let space: CGFloat = 3.0
+        let widthDimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        let heightDimension = (self.view.frame.size.height - (2 * space)) / 5.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(widthDimension, heightDimension)
 
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("\(memes.count)")
         self.collectionView.reloadData()
     }
 
@@ -47,7 +55,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         //Grab the DetailVC from storyboard
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("SentMemesCollectionVC") as! SentMemesCollectionViewController
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("SentMemesCollectionViewController") as! SentMemesCollectionViewController
         
         //Populate VC with data from selected item
         detailController.meme = self.memes[indexPath.row]
