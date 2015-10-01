@@ -17,6 +17,8 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var addMemeInfoLabel: UILabel!
     
     
     let memeTextAttributes = [
@@ -52,6 +54,9 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         
         //Uses NSNotificationCenter to listen for TextField interaction and move the keyboard
         subscribeToKeyboardNotifications()
+        shareButtonActivation()
+        createMemeEmptyState()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -131,13 +136,14 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func save(memedImage: UIImage) {
-        let meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let meme = Meme(topString: topMemeTextField.text!, bottomString: bottomMemeTextField.text!, originalImage: imagePickerView.image!, memeDate:  NSDate(), memedImage: memedImage)
         
         //Add to memes array in AppDelegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
         
+        print(meme)
     }
     
     func generateMemedImage() -> UIImage {
@@ -180,6 +186,22 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         bottomMemeTextField.text = "BOTTOM"
         imagePickerView.image = nil
         
+    }
+    
+    func shareButtonActivation() {
+        if imagePickerView.image != nil || topMemeTextField.text != "TOP" || bottomMemeTextField.text != "BOTTOM" {
+            shareButton.enabled = true
+        } else {
+            shareButton.enabled = false
+        }
+    }
+    
+    func createMemeEmptyState() {
+        if imagePickerView.image != nil {
+            addMemeInfoLabel.hidden = true
+        } else {
+            addMemeInfoLabel.hidden = false
+        }
     }
     
 }

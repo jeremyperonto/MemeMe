@@ -13,5 +13,7 @@ struct Meme {
     var topString: String
     var bottomString: String
     var originalImage: UIImage
+    var memeDate: NSDate
     var memedImage: UIImage
+    
 }
