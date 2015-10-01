@@ -23,8 +23,8 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let widthDimension = (self.view.bounds.size.width - (2 * space)) / 3.0
-        let heightDimension = (self.view.bounds.size.height - (2 * space)) / 5.0
+        let widthDimension = (view.bounds.size.width - (2 * space)) / 3.0
+        let heightDimension = (view.bounds.size.height - (2 * space)) / 5.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -33,7 +33,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,7 +42,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! SentMemesCollectionViewCell //TO DO: Create Custom Cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! SentMemesCollectionViewCell
         let meme = memes[indexPath.item]
         //cell.setText(meme.top, bottomString: meme.bottom)
         let imageView = UIImageView(image: meme.memedImage)
@@ -55,11 +55,11 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         //Grab the DetailVC from storyboard
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("SentMemesCollectionViewController") as! SentMemesCollectionViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("SentMemesCollectionViewController") as! SentMemesCollectionViewController
         
         //Populate VC with data from selected item
         detailController.meme = self.memes[indexPath.row]
-        self.navigationController?.pushViewController(detailController, animated: true)
+        navigationController?.pushViewController(detailController, animated: true)
         
     }
     
@@ -68,15 +68,4 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

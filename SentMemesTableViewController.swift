@@ -19,7 +19,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewWillAppear(animated: Bool) {
         print("\(memes.count)")
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -35,8 +35,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell")!
         let meme = memes[indexPath.row]
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         
         cell.textLabel?.text = "\(meme.topString) / \(meme.bottomString)"
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(meme.memeDate)
         cell.imageView?.image = meme.memedImage
         
         return cell
@@ -44,7 +47,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("SentMemesTableViewController") as! SentMemesTableViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("SentMemesTableViewController") as! SentMemesTableViewController
         detailController.meme = memes[indexPath.row]
         navigationController?.pushViewController(detailController, animated: true)
         
@@ -56,15 +59,5 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
