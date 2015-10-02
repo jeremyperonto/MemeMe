@@ -55,7 +55,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         //Grab the DetailVC from storyboard
-        let detailController = storyboard!.instantiateViewControllerWithIdentifier("SentMemesCollectionViewController") as! SentMemesCollectionViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeViewController") as! MemeViewController
         
         //Populate VC with data from selected item
         detailController.meme = self.memes[indexPath.row]

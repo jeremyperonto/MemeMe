@@ -47,7 +47,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = storyboard!.instantiateViewControllerWithIdentifier("SentMemesTableViewController") as! SentMemesTableViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeViewController") as! MemeViewController
         detailController.meme = memes[indexPath.row]
         navigationController?.pushViewController(detailController, animated: true)
         

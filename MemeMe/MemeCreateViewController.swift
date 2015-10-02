@@ -30,7 +30,8 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         NSStrokeWidthAttributeName : NSNumber(float: -3.0)
     
     ]
-    
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -185,6 +186,7 @@ class MemeCreateViewController: UIViewController, UIImagePickerControllerDelegat
         topMemeTextField.text = "TOP"
         bottomMemeTextField.text = "BOTTOM"
         imagePickerView.image = nil
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
